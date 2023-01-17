@@ -10,8 +10,8 @@ echo "Install go 1.19.1"
 ver="1.19.1"
 cd $HOME
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
+rm -rf /usr/local/go
+tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
 rm "go$ver.linux-amd64.tar.gz"
 
 cat <<'EOF' >>$HOME/.profile
@@ -24,7 +24,7 @@ EOF
 source $HOME/.profile
 go version
 
-apt-get install build-essential -y && sudo apt-get install jq curl tar wget clang pkg-config libssl-dev git make ncdu -y
+apt-get install build-essential -y && apt-get install jq curl tar wget clang pkg-config libssl-dev git make ncdu -y
 
 echo "Install celestia app"
 pkill celestia
