@@ -6,6 +6,7 @@ fi
 apt update -y
 echo "Enter your name MONIKER:"
 read MONIKER
+echo "export MONIKER=$MONIKER" >> $HOME/.profile
 echo "Install go 1.19.1"
 ver="1.19.1"
 cd $HOME
