@@ -34,7 +34,7 @@ git clone https://github.com/celestiaorg/celestia-app.git
 cd celestia-app/
 APP_VERSION=v0.11.0
 git checkout tags/$APP_VERSION -b $APP_VERSION
-make install
+make install 2>&1
 celestia-appd version
 
 echo "Install celestia node"
@@ -43,7 +43,7 @@ rm -rf celestia-node
 git clone https://github.com/celestiaorg/celestia-node.git
 cd celestia-node/
 git checkout tags/v0.6.1
-make install
+make install 2>&1
 make cel-key
 
 echo "Install celestia network"
@@ -73,6 +73,7 @@ sed -i -e "s/^pruning-interval *=.*/pruning-interval = \
 cd $HOME
 rm -rf ~/.celestia-app/data
 mkdir -p ~/.celestia-app/data
+echo "Download snapshot"
 SNAP_NAME=$(curl -s https://snaps.qubelabs.io/celestia/ | \
     egrep -o ">mocha.*tar" | tr -d ">")
 wget -O - https://snaps.qubelabs.io/celestia/${SNAP_NAME} | tar xf - \
@@ -96,4 +97,6 @@ systemctl enable celestia-appd
 systemctl start celestia-appd
 
 echo -e "Check status:  \033[42m systemctl status celestia-appd \033[0m"
+echo -e "Check log: \033[42m journalctl -u celestia-appd -f -n 50 \033[0m"
 echo -e "Check sync: \033[42m curl -s localhost:26657/status | jq .result | jq .sync_info \033[0m"
+
