@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$(id -u)" -eq 0 ]; then
+if [ "$(id -u)" -nq 0 ]; then
   echo "This script must not be run as root" >&2
   exit 1
 fi
