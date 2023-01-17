@@ -3,6 +3,7 @@ if [ "$(id -u)" -eq 0 ]; then
   echo "This script must not be run as root" >&2
   exit 1
 fi
+apt update -y
 echo "Enter your name MONIKER:"
 read MONIKER
 echo "Install go 1.19.1"
