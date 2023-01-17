@@ -95,5 +95,5 @@ EOF
 systemctl enable celestia-appd
 systemctl start celestia-appd
 
-echo "Check status:  systemctl status celestia-appd "
-echo "Check sync:  curl -s localhost:26657/status | jq .result | jq .sync_info "
+echo -e "Check status:  \033[42m systemctl status celestia-appd \033[0m"
+echo -e "Check sync: \033[42m curl -s localhost:26657/status | jq .result | jq .sync_info \033[0m"
