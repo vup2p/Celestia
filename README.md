@@ -1,5 +1,10 @@
 # Celestia
 Run in screen 
+
+`screen -S celestia`
+
+Start install
+
 ```
 apt update -y
 apt install wget -y
