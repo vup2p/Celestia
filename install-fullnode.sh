@@ -98,6 +98,7 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 EOF
 
+systemctl daemon-reload
 systemctl enable celestia-appd
 systemctl start celestia-appd
 
