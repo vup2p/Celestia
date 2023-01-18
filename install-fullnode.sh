@@ -1,7 +1,11 @@
 #!/bin/bash
 if [ "$(id -u)" -ne 0 ]; then
-  echo "This script must not be run as root" >&2
+  echo "This script must be run as root. Exiting..." >&2
   exit 1
+fi
+if [ "$(cat /etc/os-release | grep -i "ID=ubuntu" |cut -d'=' -f2)" != "ubuntu" ]; then
+    echo "This OS is not Ubuntu. Exiting..."
+    exit 1
 fi
 apt update -y
 echo "Enter your name MONIKER:"
@@ -100,4 +104,3 @@ systemctl start celestia-appd
 echo -e "Check status:  \033[42m systemctl status celestia-appd \033[0m"
 echo -e "Check log: \033[42m journalctl -u celestia-appd -f -n 50 \033[0m"
 echo -e "Check sync: \033[42m curl -s localhost:26657/status | jq .result | jq .sync_info \033[0m"
-
