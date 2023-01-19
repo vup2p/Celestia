@@ -1,5 +1,4 @@
-# Celestia
-Setting up a Celestia Validator Node
+# Setting up a Celestia Validator Node
 
 Run in screen 
 
