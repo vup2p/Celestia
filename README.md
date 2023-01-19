@@ -1,4 +1,6 @@
 # Celestia
+Setting up a Celestia Validator Node
+
 Run in screen 
 
 `screen -S celestia`
