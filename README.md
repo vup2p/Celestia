@@ -4,7 +4,8 @@ Run as root
 
 `sudo -i`
 
-Run in screen 
+Run in screen
+
 `screen -S celestia`
 
 Start install
